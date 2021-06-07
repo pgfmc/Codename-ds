@@ -39,6 +39,8 @@ public class OnJoin implements Listener {
 				p.getInventory().addItem(newPlayerItems);
 				db.set("uuids.", p.getUniqueId().toString());
 				
+				try { db.save(file); } catch (IOException except) { except.printStackTrace(); }
+				
 				return;
 			}
 			
@@ -48,6 +50,9 @@ public class OnJoin implements Listener {
 			{
 				p.getInventory().addItem(newPlayerItems);
 				db.set("uuids.", p.getUniqueId().toString());
+				
+				try { db.save(file); } catch (IOException except) { except.printStackTrace(); }
+				
 				return;
 			}
 			
