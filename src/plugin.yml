@@ -1,11 +1,6 @@
-name: HelloWorld
+name: Prison
 version: 1.0.0
 api-version: 1.16
 author: bk
-main: net.pgfmc.helloworld.Main
-description: Hello World test plugin
-commands:
-  hi:
-    description: Sends a randomized message to the player
-    usage: /<command>
-    aliases: [hey, hola, oi]
+main: net.pgfmc.prison.Main
+description: PGF Prison
