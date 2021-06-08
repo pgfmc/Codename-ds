@@ -2,7 +2,7 @@ package net.pgfmc.prison;
 
 import org.bukkit.plugin.java.JavaPlugin; // These are your imports
 
-import net.pgfmc.prison.events.player.OnJoin;
+import net.pgfmc.prison.commands.Prison;
 
 public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot library/API
 	
@@ -12,8 +12,8 @@ public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot l
 	public void onEnable() // Runs when the plugin first starts
 	{
 		plugin = this; // represents the plugin
-		// getCommand("hi").setExecutor(new Hi()); // Registers Hi command class
-		getServer().getPluginManager().registerEvents(new OnJoin(), this);
+		getCommand("prison").setExecutor(new Prison()); // Registers Hi command class
+		// getServer().getPluginManager().registerEvents(new OnJoin(), this);
 	}
 	
 	@Override // Needed
