@@ -5,5 +5,5 @@ author: bk
 main: net.pgfmc.prison.Main
 description: PGF Prison
 commands:
-  prison:
-    aliases: [prison, pris]
+  firstjoin:
+    aliases: [fj]

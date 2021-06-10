@@ -2,7 +2,8 @@ package net.pgfmc.prison;
 
 import org.bukkit.plugin.java.JavaPlugin; // These are your imports
 
-import net.pgfmc.prison.commands.Prison;
+import net.pgfmc.prison.commands.FirstJoin;
+import net.pgfmc.prison.events.OnBlockBreakInMine;
 
 public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot library/API
 	
@@ -13,8 +14,8 @@ public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot l
 	{
 		
 		plugin = this; // represents the plugin
-		getCommand("prison").setExecutor(new Prison()); // Registers Hi command class
-		// getServer().getPluginManager().registerEvents(new OnJoin(), this);
+		getCommand("firstjoin").setExecutor(new FirstJoin()); // Registers Hi command class
+		getServer().getPluginManager().registerEvents(new OnBlockBreakInMine(), this);
 	}
 	
 	@Override // Needed
@@ -22,5 +23,6 @@ public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot l
 	{
 		// You can leave this empty or just don't write the method
 	}
+	
 
 }
