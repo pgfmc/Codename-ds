@@ -20,7 +20,9 @@ public class OnJoin {
 	public static void onPrisonJoin(Player p)
 	{
 		// if (p.getWorld().getName() != "prison") { return; } // Return if the world isn't Prison
-		File file = new File(Main.plugin.getDataFolder() + File.separator + "logs" + File.separator + "join.yml"); // Creates a File object
+		File file = new File(Main.plugin.getDataFolder() + File.separator + "logs"); // Creates a File object
+		file.mkdirs();
+		file = new File(Main.plugin.getDataFolder() + File.separator + "logs" + File.separator + "join.yml");
 		FileConfiguration db = YamlConfiguration.loadConfiguration(file); // Turns the File object into YAML and loads data
 		
 		try { file.createNewFile(); } catch (IOException except) { except.printStackTrace(); } // Create the file if it doesn't exist
