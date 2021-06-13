@@ -1,29 +1,32 @@
-package net.pgfmc.prison.events;
+package net.pgfmc.dwarfsim.events;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import net.pgfmc.prison.Main;
+import net.pgfmc.dwarfsim.Main;
 
 public class OnFirstJoin {
 	
 	private static ItemStack[] newPlayerItems = { new ItemStack(Material.GOLDEN_PICKAXE), new ItemStack(Material.COOKED_BEEF, 16) }; // Items new players should receive
 	
-	public static void onPrisonJoin(Player p)
+	public static void onDwarfSimJoin(Player p)
 	{
 		if (p.getWorld().getName() != "prison") { return; } // Return if the world isn't Prison
 		File file = new File(Main.plugin.getDataFolder() + File.separator + "logs"); // Creates a File object
 		file.mkdirs();
 		file = new File(Main.plugin.getDataFolder() + File.separator + "logs" + File.separator + "join.yml");
 		FileConfiguration db = YamlConfiguration.loadConfiguration(file); // Turns the File object into YAML and loads data
+		
+		p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1); // Welcome sound EVERYTIME
 		
 		try { file.createNewFile(); } catch (IOException except) { except.printStackTrace(); } // Create the file if it doesn't exist
 		
@@ -37,7 +40,12 @@ public class OnFirstJoin {
 			try { db.save(file); } catch (IOException except) { except.printStackTrace(); }
 			
 			return;
+		} else
+		{
+			p.sendMessage("§cYou have already claimed these items.");
+			return;
 		}
+		
 	}
 
 }

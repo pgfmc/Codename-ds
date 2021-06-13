@@ -1,4 +1,4 @@
-package net.pgfmc.prison;
+package net.pgfmc.dwarfsim;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,9 +1,9 @@
-name: Prison
+name: ds
 version: 1.0.0
 api-version: 1.16
 author: bk
-main: net.pgfmc.prison.Main
-description: PGF Prison
+main: net.pgfmc.dwarfsim.Main
+description: Codename ds
 commands:
-  firstjoin:
-    aliases: [fj]
+  dwarfsim:
+    aliases: [fj, ds]

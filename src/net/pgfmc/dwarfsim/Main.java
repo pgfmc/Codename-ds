@@ -1,9 +1,10 @@
-package net.pgfmc.prison;
+package net.pgfmc.dwarfsim;
 
 import org.bukkit.plugin.java.JavaPlugin; // These are your imports
 
-import net.pgfmc.prison.commands.FirstJoin;
-import net.pgfmc.prison.events.OnBlockBreakInMine;
+import net.pgfmc.dwarfsim.commands.DwarfSim;
+import net.pgfmc.dwarfsim.commands.FirstJoin;
+import net.pgfmc.dwarfsim.events.OnBlockBreakInMine;
 
 public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot library/API
 	
@@ -14,8 +15,10 @@ public class Main extends JavaPlugin { // exentends JavaPlugin from the Spigot l
 	{
 		
 		plugin = this; // represents the plugin
-		getCommand("firstjoin").setExecutor(new FirstJoin()); // Registers Hi command class
+		getCommand("dwarfsim").setExecutor(new FirstJoin()); // Registers Hi command class
+		getCommand("dwarfsim").setExecutor(new DwarfSim()); // Registers Hi command class
 		getServer().getPluginManager().registerEvents(new OnBlockBreakInMine(), this);
+		getServer().getPluginManager().registerEvents(new CreateMine(), this);
 	}
 	
 	@Override // Needed
